@@ -1,0 +1,37 @@
+{
+  "name": "one-view-api",
+  "version": "1.0.0",
+  "description": "API Routes for One View Reviews",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NehaNautiyal/one-view-api.git"
+  },
+  "keywords": [
+    "ibm",
+    "watson",
+    "amazon",
+    "reviews",
+    "scrape",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "Neha Nautiyal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NehaNautiyal/one-view-api/issues"
+  },
+  "homepage": "https://github.com/NehaNautiyal/one-view-api#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "ibm-watson": "^4.2.1",
+    "mongoose": "^5.6.3"
+  }
+}
