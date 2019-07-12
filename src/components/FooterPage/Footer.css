@@ -1,0 +1,12 @@
+.footer {
+  margin: 0;
+  padding: 0;
+}
+
+.pt-4 {
+  padding-top: 0 !important;
+}
+
+.mt-4 {
+  margin-top: 0 !important;
+}
