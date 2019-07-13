@@ -57,8 +57,9 @@ class SearchReviews extends Component {
             },
             body: new URLSearchParams(data), // data can be `string` or {object}!
             // mode: 'cors'
-        }).then(response => {
-            console.log(response);
+        }).then(response => response.json())
+            .then(data => {
+            console.log(data);
             this.setState({
                 ASIN: "",
                 keyword1: "",
