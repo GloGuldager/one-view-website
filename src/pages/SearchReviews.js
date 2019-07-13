@@ -5,50 +5,67 @@ import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 // import { List, ListItem } from "../components/SavedResult";
-// import { Input, TextArea, FormBtn } from "../components/SearchForm";
+import { Input, TextArea, FormBtn } from "../components/SearchForm";
 import SearchForm from "../components/SearchForm";
 import SearchResult from "../components/SearchResult"
 
-class SearchBooks extends Component {
+class SearchReviews extends Component {
     state = {
-        search: "",
-        books: [],
-        error: "",
-        message: ""
+        ASIN: "",
+        keyword1: "",
+        keyword2: "",
+        keyword3: "",
+        analysis: {},
+        matchedReviews: {}
     };
 
     //function for search entry
 
     handleInputChange = event => {
-        this.setState({ search: event.target.value })
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value 
+        });
     }
+
 
     handleFormSubmit = event => {
         event.preventDefault();
-        //connect to googlebooks API
-        API.getGoogleBooks(this.state.search)
-            .then(res => {
-                if (res.data.items === "error") {
-                    throw new Error(res.data.items);
-                }
-                else {
-                    let results = res.data.items
-                    results = results.map(result => {
-                        result = {
-                            key: result.id,
-                            id: result.id,
-                            title: result.volumeInfo.title,
-                            author: result.volumeInfo.authors,
-                            description: result.volumeInfo.description,
-                            image: result.volumeInfo.imageLinks.thumbnail,
-                            link: result.volumeInfo.infoLink
-                        }
-                        return result;
-                    })
-                    this.setState({ books: results, error: "" })
-                }
+        let keywords = [];
+        if (this.state.keyword1) {
+            keywords.push(this.state.keyword1);
+        }
+        if (this.state.keyword2) {
+            keywords.push(this.state.keyword2);
+        }
+        if (this.state.keyword3) {
+            keywords.push(this.state.keyword3);
+        }
+        var url = 'http://localhost:3000/api/post';
+        // var url = 'https://one-view-reviews-api.herokuapp.com/api/post';
+        console.log(this.state.ASIN);
+        var data = {
+            "ASIN": this.state.ASIN,
+            "keywords": keywords
+        };
+        console.log(data);
+
+        fetch(url, {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams(data), // data can be `string` or {object}!
+            // mode: 'cors'
+        }).then(response => {
+            console.log(response);
+            this.setState({
+                ASIN: "",
+                keyword1: "",
+                keyword2: "",
+                keyword3: ""
             })
-            .catch(err => this.setState({ error: err.items }));
+        });
     }
 
     handleSavedButton = event => {
@@ -63,30 +80,27 @@ class SearchBooks extends Component {
 
     render() {
         return (
+            <div>
 
-            <div class="wrapper">
-                <header class="main-head">The header</header>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="">Nav 1</a></li>
-                        <li><a href="">Nav 2</a></li>
-                        <li><a href="">Nav 3</a></li>
-                    </ul>
-                </nav>
-                <article class="content">
-                    <h1>Main article area</h1>
-                    <p>In this layout, we display the areas in source order for any screen less that 500 pixels wide. We go to a two column layout, and then to a three column layout by redefining the grid, and the placement of items on the grid.</p>
-                </article>
-                <aside class="side">Sidebar</aside>
-                <div class="ad">Advertising</div>
-                <footer class="main-footer">The footer</footer>
-            </div>
+                <div class="wrapper">
+                    <header class="main-head">The header</header>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="">Nav 1</a></li>
+                            <li><a href="">Nav 2</a></li>
+                            <li><a href="">Nav 3</a></li>
+                        </ul>
+                    </nav>
+                    <article class="content">
+                        <h1>Main article area</h1>
+                        <p>In this layout, we display the areas in source order for any screen less that 500 pixels wide. We go to a two column layout, and then to a three column layout by redefining the grid, and the placement of items on the grid.</p>
+                    </article>
+                    <aside class="side">Sidebar</aside>
+                    <div class="ad">Advertising</div>
+                    <footer class="main-footer">The footer</footer>
+                </div >
 
-            <Container fluid>
-                {/* <Jumbotron>
-          {/* <h1>Search for and Save Books of Interest</h1> */}
-                {/* </Jumbotron> */}
-                <Container />
+
                 <Container>
                     <Row>
                         <Col size="md-6">
@@ -98,12 +112,12 @@ class SearchBooks extends Component {
                     </Row>
                 </Container>
                 <Container>
-                    <SearchResult books={this.state.books} handleSavedButton={this.handleSavedButton}
-                    />
+                    {/* <SearchResult books={this.state.books} handleSavedButton={this.handleSavedButton} */}
                 </Container>
-            </Container>
+            </div>
+
         )
     }
 }
 
-export default SearchBooks;
+export default SearchReviews;
