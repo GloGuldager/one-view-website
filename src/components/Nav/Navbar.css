@@ -1,9 +1,11 @@
 .navbar {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #DB4437;
+  background-color: #fff;
   font-size: 1.5rem;
   margin-bottom: 5px;
-};
+}
+
+;
 
 .navbar-brand {
   display: inline-block;
@@ -12,6 +14,7 @@
   line-height: inherit;
   white-space: pre-wrap !important;
 }
+
 .btn.btn-primary:hover,
 .btn.btn-primary:focus,
 .btn.btn-primary:active,
@@ -20,17 +23,19 @@
   /* background-color: pink;
   border-color: pink; */
 }
+
 .search {
-  background-color: #0F9D58 !important;
+  background-color: #00aeef !important;
   color: white;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .saved {
-  background-color: #4285f4;
+  background-color: #f68c1e;
   color: white;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 /* color: #4285F4; blue
 color: #DB4437; red;
 color: #F4B400; yellow

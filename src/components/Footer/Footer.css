@@ -1,8 +1,13 @@
 .footer {
   margin: 0;
   padding: 0;
+  background-color: #4285F4;
+  color: white;
 }
 
+a {
+  color: white;
+}
 .pt-4 {
   padding-top: 0 !important;
 }
