@@ -5,9 +5,9 @@ import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 // import { List, ListItem } from "../components/SavedResult";
-import { Input, TextArea, FormBtn } from "../components/SearchForm";
+// import { Input, TextArea, FormBtn } from "../components/SearchForm";
 import SearchForm from "../components/SearchForm";
-import SearchResult from "../components/SearchResult"
+// import SearchResult from "../components/SearchResult"
 
 class SearchReviews extends Component {
     state = {
@@ -24,7 +24,7 @@ class SearchReviews extends Component {
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-            [name]: value 
+            [name]: value
         });
     }
 
@@ -59,48 +59,31 @@ class SearchReviews extends Component {
             // mode: 'cors'
         }).then(response => response.json())
             .then(data => {
-            console.log(data);
-            this.setState({
-                ASIN: "",
-                keyword1: "",
-                keyword2: "",
-                keyword3: ""
-            })
-        });
+                console.log(data);
+                this.setState({
+                    ASIN: "",
+                    keyword1: "",
+                    keyword2: "",
+                    keyword3: ""
+                })
+            });
     }
 
     handleSavedButton = event => {
         event.preventDefault();
-        console.log(this.state.books)
-        let savedBooks = this.state.books.filter(book => book.id === event.target.id)
-        savedBooks = savedBooks[0];
-        API.saveBook(savedBooks)
-            .then(this.setState({ message: alert("Your book is saved") }))
+        console.log(this.state.reviews)
+        let savedReviews = this.state.reviews.filter(review => review.id === event.target.id)
+        savedReviews = savedReviews[0];
+        API.saveReview(savedReviews)
+            .then(this.setState({ message: alert("Your review is saved") }))
             .catch(err => console.log(err))
     }
 
     render() {
         return (
-            <div>
+            // <div>
 
-                <div class="wrapper">
-                    <header class="main-head">The header</header>
-                    <nav class="main-nav">
-                        <ul>
-                            <li><a href="">Nav 1</a></li>
-                            <li><a href="">Nav 2</a></li>
-                            <li><a href="">Nav 3</a></li>
-                        </ul>
-                    </nav>
-                    <article class="content">
-                        <h1>Main article area</h1>
-                        <p>In this layout, we display the areas in source order for any screen less that 500 pixels wide. We go to a two column layout, and then to a three column layout by redefining the grid, and the placement of items on the grid.</p>
-                    </article>
-                    <aside class="side">Sidebar</aside>
-                    <div class="ad">Advertising</div>
-                    <footer class="main-footer">The footer</footer>
-                </div >
-
+            <div class="wrapper">
 
                 <Container>
                     <Row>
@@ -113,7 +96,8 @@ class SearchReviews extends Component {
                     </Row>
                 </Container>
                 <Container>
-                    {/* <SearchResult books={this.state.books} handleSavedButton={this.handleSavedButton} */}
+                    {/* <SearchResult reviews={this.state.reviews} handleSavedButton={this.handleSavedButton} */}
+                    {/* /> */}
                 </Container>
             </div>
 
