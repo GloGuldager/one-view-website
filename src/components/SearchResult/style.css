@@ -37,7 +37,7 @@
 }
 
 .btn {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Amazon Ember", Arial, sans-serif;
 }
 
 .btn.btn-primary:hover,
@@ -48,10 +48,11 @@
   background-color: #DB4437 !important;
   border-color: #DB4437 !important;
 }
+
 .submit {
   background-color: #DB4437 !important;
   color: white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Amazon Ember", Arial, sans-serif;
   font-weight: 700;
   display: inline-block;
   text-align: center;
@@ -71,13 +72,13 @@
 .saved {
   background-color: #4285f4;
   color: white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Amazon Ember", Arial, sans-serif;
 }
 
 .view {
   background-color: #F4B400;
   color: white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Amazon Ember", Arial, sans-serif;
 }
 
 .bookImage {
@@ -87,20 +88,19 @@
   width: auto;
 }
 
-.bookInfo {
- padding-left: 10px;
- width: auto;
+.reviewInfo {
+  padding-left: 10px;
+  width: auto;
 }
 
 h3 {
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-font-size: 2rem;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-size: 2rem;
 }
 
 h4 {
-
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-size: 1rem;
 }
 
-p {
-
-}
+p {}

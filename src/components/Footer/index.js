@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBContainer, MDBFooter } from "mdbreact";
 import "./Footer.css";
-  
+
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
     <MDBFooter color="blue" className="font-small footer">
       <div className="footer-copyright text-center py-3">
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="https://gloguldager.github.io/"> Gloria Guldager - with React </a>
+          &copy; {new Date().getFullYear()} Copyright: <a href="https://gloguldager.github.io/"> Will Abbot, Neha Nautiyal, Gloria Guldager</a>
         </MDBContainer>
       </div>
     </MDBFooter>

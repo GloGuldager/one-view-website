@@ -1,57 +1,57 @@
-import React from "react";
-import "./style.css";
-import {Row, Col} from "../Grid"
+import React from 'react';
+import './style.css';
+import { Row, Col } from '../Grid'
 
 // This file exports both the List and ListItem components
 const SearchResult = props => {
-    return (props.books.length === 0) ? (
-        <div className="card">
-            <div className="card-body player">
-                <div className="article">
+    return (props.reviews.length === 0) ? (
+        <div className='card'>
+            <div className='card-body player'>
+                <div className='article'>
                     <h3>Search Results</h3>
                 </div>
             </div>
         </div>
     ) : (
-            <div className="card">
-                <div className="card-body player">
-                    <div className="article">
+            <div className='card'>
+                <div className='card-body player'>
+                    <div className='article'>
                         <h3>Search Results</h3>
-                        {props.books.map(book => {
+                        {props.reviews.map(review => {
                             return (
-                                <li className="search-list list-group-item">
-                                    <Row className="SearchResult row" id={book.title + "Card"} key={book._id}>
+                                <li className='search-list list-group-item'>
+                                    <Row className='SearchResult row' id={review.title + 'Card'} key={review._id}>
                                         {/* col-3 show image of the book */}
-                                        <Col size="xs-4 sm-3" className="bookImage">
+                                        {/* <Col size="xs-4 sm-3" className="bookImage">
                                             <img src={book.image} alt={book.title} />
-                                        </Col>
+                                        </Col> */}
                                         {/* <Col size="1" className="emptyCol"/> */}
                                         {/* col-9 show information of the book */}
-                                        <Col size="xs-8 sm-9" className="bookInfo">
+                                        <Col size='xs-8 sm-9' className='reviewInfo'>
                                             <Row>
-                                                <h3 className="bookTitle">{book.title}</h3>
+                                                <h3 className='reviewTitle'>{review.title}</h3>
                                             </Row>
-                                            <Row>
+                                            {/* <Row>
                                                 <h4 className="bookAuthor">{book.author}</h4>
-                                            </Row>
+                                            </Row> */}
                                             <Row>
-                                                <p className="bookDescription">{book.description}</p>
+                                                <p className='reviewText'>{review.text}</p>
                                             </Row>
                                         </Col>
                                     </Row>
-                                    <br></br>
-                                    <Row className="buttonDiv ">
-                                        <button className="saveBook btn btn-default saved" id={book.id} onClick={(event) => props.handleSavedButton(event)}>
-                                            Save Book
-                                        </button>
-                                        <a href={book.link} target="_blank">
-                                            <button className="viewBook btn btn-default view">
-                                                View Book
-                                        </button>
+                                    <br />
+                                    <Row className='buttonDiv'>
+                                        <button className='saveBook btn btn-default saved' id={review.id} onClick={(event) => props.handleSavedButton(event)}>
+                                            Save Review
+                  </button>
+                                        <a href={review.link} target='_blank'>
+                                            <button className='viewReview btn btn-default view'>
+                                                View Review
+                    </button>
                                         </a>
                                     </Row>
                                 </li>
-                            );
+                            )
                         })}
                     </div>
                 </div>
