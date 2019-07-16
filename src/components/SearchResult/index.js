@@ -4,11 +4,11 @@ import { Row, Col } from '../Grid'
 
 // This file exports both the List and ListItem components
 const SearchResult = props => {
-    return (props.reviews.length === 0) ? (
+    return (props.review.length === 0) ? (
         <div className='card'>
             <div className='card-body player'>
                 <div className='article'>
-                    <h3>Search Results</h3>
+                    <h3>No Search Results</h3>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@ const SearchResult = props => {
                 <div className='card-body player'>
                     <div className='article'>
                         <h3>Search Results</h3>
-                        {props.reviews.map(review => {
+                        {props.review.map(review => {
                             return (
                                 <li className='search-list list-group-item'>
                                     <Row className='SearchResult row' id={review.title + 'Card'} key={review._id}>
