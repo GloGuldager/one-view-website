@@ -27,7 +27,7 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     //connect to googlebooks API
-    var url = 'http://localhost:3000/api/login';
+    var url = 'http://localhost:3000/api/signup';
     // var url = 'https://one-view-reviews-api.herokuapp.com/api/post';
     console.log(this.state.username);
     var user = {
@@ -43,14 +43,15 @@ class Login extends Component {
       },
       body: new URLSearchParams(user), // data can be `string` or {object}!
       // mode: 'cors'
-    }).then(response => response.json())
-      .then(user => {
-        console.log(user);
-        this.setState({
-          username: "",
-          password: ""
-        })
-      });
+    }).then(response => console.log(response));
+    // .then(response => response.json())
+      // .then(user => {
+      //   console.log(user);
+      //   this.setState({
+      //     username: "",
+      //     password: ""
+      //   })
+      // });
 
 
 

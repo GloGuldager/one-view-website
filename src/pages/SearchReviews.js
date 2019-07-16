@@ -16,7 +16,8 @@ class SearchReviews extends Component {
         keyword2: "",
         keyword3: "",
         analysis: {},
-        matchedReviews: {}
+        matchedReviews: {},
+        totalSentiment: ""
     };
 
     //function for search entry
@@ -59,13 +60,26 @@ class SearchReviews extends Component {
             // mode: 'cors'
         }).then(response => response.json())
             .then(data => {
+                let review;
+                let totalSentiment = data.analysis.sentiment.document.score;
+                data.matchedReviews.map(result => {
+                    review = {
+                        title: result.reviewTitle,
+                        text: result.reviewText
+                    }
+                    return review;
+                })
                 console.log(data);
                 this.setState({
                     ASIN: "",
                     keyword1: "",
                     keyword2: "",
-                    keyword3: ""
+                    keyword3: "",
+                    analysis: data.analysis,
+                    matchedReviews: review,
+                    totalSentiment: totalSentiment
                 })
+                return totalSentiment;
             });
     }
 
@@ -96,8 +110,8 @@ class SearchReviews extends Component {
                     </Row>
                 </Container>
                 <Container>
-                    {/* <SearchResult reviews={this.state.reviews} handleSavedButton={this.handleSavedButton} */}
-                    {/* /> */}
+                    {/* <SearchResult totalSentiment={this.state.totalSentiment}></SearchResult>
+                    <SearchResult matchedReviews={this.state.matchedReviews}></SearchResult>              */}
                 </Container>
             </div>
 
