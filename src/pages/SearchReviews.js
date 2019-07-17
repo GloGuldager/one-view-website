@@ -7,7 +7,7 @@ import { Col, Row, Container } from "../components/Grid";
 // import { List, ListItem } from "../components/SavedResult";
 // import { Input, TextArea, FormBtn } from "../components/SearchForm";
 import SearchForm from "../components/SearchForm";
-// import SearchResult from "../components/SearchResult"
+import SearchResult from "../components/SearchResult"
 
 class SearchReviews extends Component {
     state = {
@@ -15,9 +15,9 @@ class SearchReviews extends Component {
         keyword1: "",
         keyword2: "",
         keyword3: "",
-        analysis: {},
-        matchedReviews: {},
-        totalSentiment: ""
+        analysis: [],
+        matchedReviews: [],
+        overallSentiment: ""
     };
 
     //function for search entry
@@ -60,15 +60,9 @@ class SearchReviews extends Component {
             // mode: 'cors'
         }).then(response => response.json())
             .then(data => {
-                let review;
-                let totalSentiment = data.analysis.sentiment.document.score;
-                data.matchedReviews.map(result => {
-                    review = {
-                        title: result.reviewTitle,
-                        text: result.reviewText
-                    }
-                    return review;
-                })
+                
+                let overallSentiment = Math.floor(data.analysis.sentiment.document.score * 50 + 50);
+              
                 console.log(data);
                 this.setState({
                     ASIN: "",
@@ -76,10 +70,10 @@ class SearchReviews extends Component {
                     keyword2: "",
                     keyword3: "",
                     analysis: data.analysis,
-                    matchedReviews: review,
-                    totalSentiment: totalSentiment
+                    matchedReviews: data.matchedReviews,
+                    overallSentiment: overallSentiment
                 })
-                return totalSentiment;
+        
             });
     }
 
@@ -110,8 +104,12 @@ class SearchReviews extends Component {
                     </Row>
                 </Container>
                 <Container>
-                    {/* <SearchResult totalSentiment={this.state.totalSentiment}></SearchResult>
-                    <SearchResult matchedReviews={this.state.matchedReviews}></SearchResult>              */}
+                    {/* <SearchResult analysis={this.state.analysis}></SearchResult> */}
+                    <SearchResult 
+                    analysis={this.state.analysis}
+                    matchedReviews={this.state.matchedReviews}>
+
+                    </SearchResult>
                 </Container>
             </div>
 
