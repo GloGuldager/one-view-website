@@ -20,21 +20,21 @@ const SearchForm = props => {
                     value={props.search}
                     type="text"
                     name="keyword1"
-                    placeholder="Enter a keyword"
+                    placeholder="Enter a keyword (optional)"
                     onChange={props.handleInputChange}
                 />
                 <input className="col-12 form-control"
                     value={props.search}
                     type="text"
                     name="keyword2"
-                    placeholder="Enter a 2nd keyword"
+                    placeholder="Enter a 2nd keyword (optional)"
                     onChange={props.handleInputChange}
                 />
                 <input className="col-12 form-control"
                     value={props.search}
                     type="text"
                     name="keyword3"
-                    placeholder="Enter a 3rd keyword"
+                    placeholder="Enter a 3rd keyword (optional)"
                     onChange={props.handleInputChange}
                 />
             </div>
