@@ -42,8 +42,8 @@ class SearchReviews extends Component {
         if (this.state.keyword3) {
             keywords.push(this.state.keyword3);
         }
-        var url = 'http://localhost:3000/api/post';
-        // var url = 'https://one-view-reviews-api.herokuapp.com/api/post';
+        // var url = 'http://localhost:3000/api/post';
+        var url = 'https://one-view-reviews-api.herokuapp.com/api/post';
         console.log(this.state.ASIN);
         var data = {
             "ASIN": this.state.ASIN,

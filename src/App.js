@@ -18,7 +18,7 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={SearchReviews} />
-          <Route exact path="/results" component={Results} />
+          {/* <Route exact path="/results" component={Results} /> */}
           <Route exact path="/login" component={Login} />
           <Route exact path="/saved" component={SaveResults} />
           <Route exact path="/saved/:id" component={SaveResults} />
