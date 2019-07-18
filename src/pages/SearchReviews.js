@@ -60,9 +60,9 @@ class SearchReviews extends Component {
             // mode: 'cors'
         }).then(response => response.json())
             .then(data => {
-                
+
                 let overallSentiment = Math.floor(data.analysis.sentiment.document.score * 50 + 50);
-              
+
                 console.log(data);
                 this.setState({
                     ASIN: "",
@@ -73,7 +73,7 @@ class SearchReviews extends Component {
                     matchedReviews: data.matchedReviews,
                     overallSentiment: overallSentiment
                 })
-        
+
             });
     }
 
@@ -91,7 +91,7 @@ class SearchReviews extends Component {
         return (
             // <div>
 
-            <div class="wrapper">
+            <div className="wrapper">
 
                 <Container>
                     <Row>
@@ -105,9 +105,9 @@ class SearchReviews extends Component {
                 </Container>
                 <Container>
                     {/* <SearchResult analysis={this.state.analysis}></SearchResult> */}
-                    <SearchResult 
-                    analysis={this.state.analysis}
-                    matchedReviews={this.state.matchedReviews}>
+                    <SearchResult
+                        analysis={this.state.analysis}
+                        matchedReviews={this.state.matchedReviews}>
 
                     </SearchResult>
                 </Container>

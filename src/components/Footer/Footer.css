@@ -1,17 +1,40 @@
-.footer {
+html,
+body {
+  height: 100%;
+}
+
+body {
   margin: 0;
-  padding: 0;
-  background-color: #4285F4;
-  color: white;
 }
 
-a {
-  color: white;
-}
-.pt-4 {
-  padding-top: 0 !important;
+body {
+  display: grid;
+  grid-gap: 10px;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: 100px 1fr 40px;
+  padding: 10px
 }
 
-.mt-4 {
-  margin-top: 0 !important;
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
+
+footer {
+  background-color: #2b3990;
+  color: #fff;
+  text-align: center;
+  padding-top: 10px;
 }

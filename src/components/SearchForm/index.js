@@ -6,7 +6,7 @@ const SearchForm = props => {
     return (
         <form>
             <div className="form-group">
-                <label className="ReviewSearchLabel"><h3>Search Product Reviews</h3></label>
+                <label className="ReviewSearchLabel"><h3>Search Product Reviews from Amazon</h3></label>
                 <br></br>
                 <h4>Use keywords for features you care about and let IBM Watson do the rest to return reviews and analysis tailored to your needs.</h4>
                 <input className="col-12 form-control"

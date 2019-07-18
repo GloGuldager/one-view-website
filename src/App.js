@@ -14,7 +14,7 @@ import "./index.css";
 function App() {
   return (
     <Router>
-      <div class="wrapper">
+      <div className="wrapper">
         <Nav />
         <Switch>
           <Route exact path="/" component={SearchReviews} />
