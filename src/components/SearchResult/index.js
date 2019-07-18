@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
-import { Row, Col } from '../Grid'
+import Card from '../Card';
+// import { Row, Col } from '../Grid'
 
 // This file exports both the List and ListItem components
 function SearchResult(props) {
@@ -14,10 +15,10 @@ function SearchResult(props) {
                 Here are your matched reviews:
                 {props.matchedReviews.map(review => {
                     return (
-                        <div>
-                            <li>Title: {review.reviewTitle}</li>
-                            <li>Review: {review.reviewText}</li>
-                        </div>
+                        <Card>
+                            <b>{review.reviewTitle}</b>
+                            <br/>{review.reviewText}
+                        </Card>
                     );
                 })}
 
